@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* Prevent layout shift from scrollbar */
+  scrollbar-gutter: stable;
+}
+
+body {
+  margin: 0;
+  font-family:
+    'Poppins',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'Roboto',
+    'Oxygen',
+    'Ubuntu',
+    'Cantarell',
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family:
+    source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* Performance optimizations */
+#root {
+  isolation: isolate;
+  /* CSS containment to prevent layout thrashing */
+  contain: layout style;
+}
+
+/* Optimize modal/drawer transitions */
+.MuiModal-root,
+.MuiDrawer-root {
+  will-change: transform, opacity;
+  /* Prevent layout recalculation propagation */
+  contain: layout;
+}
+
+.MuiBackdrop-root {
+  will-change: opacity;
+  /* Backdrop doesn't affect layout */
+  contain: strict;
+}
+
+/* Optimize Paper components */
+.MuiPaper-root {
+  contain: layout style;
+}
+
+/* Optimize hover transitions to use GPU */
+.MuiButton-root,
+.MuiIconButton-root {
+  /* Force GPU acceleration */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Optimize images */
+img {
+  /* Prevent forced reflows from image loading */
+  contain: layout;
+}

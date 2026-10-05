@@ -1,0 +1,17 @@
+# Netlify Configuration File
+
+[build]
+  # Build command
+  command = "npm run build"
+  # Directory with build output
+  publish = "dist"
+
+# Redirect all routes to index.html for React Router
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Form submission settings
+[build.environment]
+  NODE_VERSION = "20"
